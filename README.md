@@ -20,6 +20,7 @@ single-video.php file that can just be copied in to the theme
 
 ### Videos Shortcode
 1) Use the shortcode `[brinkman-videos /]` to display the videos on a page
+
 | Attribute | Required   | Default | Details                                                             |
 |-----------|------------|---------|---------------------------------------------------------------------|
 | show      | optional   | -       | Selects only the videos tagged with a specific show i.e. "Featured" |
@@ -27,6 +28,7 @@ single-video.php file that can just be copied in to the theme
 
 ### Comments Shortcode
 1) Use the shortcode `[brinkman-comments /]` to display comments from YouTube
+
 | Attribute | Required   | Default | Details                                                             |
 |-----------|------------|---------|---------------------------------------------------------------------|
 | max_posts | optional   | 1       | Maximum number of comments to display (I believe this is stuck at 1 because of a bug)|

@@ -1,48 +1,45 @@
 <?php
 
-/**
- * @package BrinkmanVideos
- *
-**/
 /*
-Plugin Name: Baba Brinkman Videos
-Plugin URI: https://www.burtonmediainc.com/plugins/brinkmanvideos
-Description: A plugin created to add functionality for using the YouTube API to display video
-             information and comments using shortcodes
-Version: 1.0.0
-Author: Jesse James Burton
-Author URI: https://www.burtonmediainc.com
-License: GPLv2 or Later
-Text Domain: brinkman-videos
-GIT: https://github.com/jessejburton/Brinkman-Reviews
+* Plugin Name: Baba Brinkman Videos
+* Plugin URI: https://www.burtonmediainc.com/plugins/brinkmanvideos (TODO)
+* Description: A plugin created to add functionality for using the
+* YouTube API to display video information and comments using shortcodes
+*
+* Version: 2.0.0
+* Author: Jesse James Burton
+* Author URI: https://www.burtonmediainc.com
+* License: GPLv2 or Later
+* Text Domain: brinkman-videos
+* GIT: https://github.com/jessejburton/Brinkman-Reviews
 */
 
-/* Include Styles */
+/*
+ * Include Styles
+*/
 function add_videos_plugin_styles() {
   wp_enqueue_style( 'brinkman-videos-styles', plugins_url('brinkman-videos.css',__FILE__ ), array(), '1.1', 'all');
 }
 add_action( 'wp_enqueue_scripts', 'add_videos_plugin_styles' );
 
-/* Include Scripts */
+/*
+ * Include Scripts
+*/
 function add_videos_plugin_script() {
   wp_enqueue_script( 'brinkman-videos-scripts', plugins_url('brinkman-videos.js',__FILE__ ), array(), '1.1', 'all', false);
 }
 add_action( 'wp_enqueue_scripts', 'add_videos_plugin_script' );
 
-/**
- * Register comments shortcode
- *
- * @return null
- */
+/*
+* Register comments shortcode
+*/
 function burtonmedia_comments_shortcode() {
   add_shortcode( 'brinkman-comments', 'shortcode_comments' );
 }
 add_action( 'init', 'burtonmedia_comments_shortcode' );
 
-/**
+/*
 * Comments Shortcode Callback
-* @param Array $atts
-* @return string
 */
 function shortcode_comments( $atts ) {
   global $wp_query,
@@ -59,7 +56,9 @@ function shortcode_comments( $atts ) {
       'order' => 'DESC'
   ) );
 
-// The Loop
+/*
+* THE LOOP
+*/
 if ( $loop->have_posts() ) {
 	?><div class="brinkman-comments"><?php
     while ( $loop->have_posts() ) {
@@ -74,24 +73,20 @@ if ( $loop->have_posts() ) {
 }
 
 // Restore original Post Data
-wp_reset_postdata();	
+wp_reset_postdata();
 
 }
 
-/**
+/*
  * Register Video Display Shortcode
- *
- * @return null
- */
+*/
 function burtonmedia_video_display_shortcode() {
   add_shortcode( 'brinkman-videos', 'video_display_comments' );
 }
 add_action( 'init', 'burtonmedia_video_display_shortcode' );
 
-/**
+/*
 * Video Display Shortcode Callback
-* @param Array $atts
-* @return string
 */
 function video_display_comments( $atts ) {
   global $wp_query,
@@ -171,27 +166,9 @@ function video_display_comments( $atts ) {
 
 }
 
-/**
-* add Review Archive template page
-* @param Array $atts
-* @return string
-
-function reviews_template( $template ) {
-  if ( is_post_type_archive('reviews') ) {
-    $theme_files = array('archive-reviews.php', 'brinkman-reviews/archive-reviews.php');
-    $exists_in_theme = locate_template($theme_files, false);
-    if ( $exists_in_theme != '' ) {
-      return $exists_in_theme;
-    } else {
-      return plugin_dir_path(__FILE__) . 'archive-reviews.php';
-    }
-  }
-  return $template;
-}
-add_filter('template_include', 'reviews_template');
+/*
+* UTILITIES
 */
-
-/* UTILITIES */
 // Get Data from YouTube
 function get_data_from_youtube($url){
   $curl = curl_init();
@@ -214,6 +191,5 @@ function get_data_from_youtube($url){
 
   return json_decode($response, true);
 }
-
 
 ?>

@@ -1,6 +1,6 @@
-# Brinkman Reviews Shortcode
+# Brinkman Videos Shortcode
 
-~Current Version: 2.0~
+Current Version: 1.0
 
 ## Description
 A plugin that adds shortcodes to display the custom post type "Reviews".

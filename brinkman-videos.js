@@ -14,6 +14,7 @@ function whichTransitionEvent() {
     }
   }
 }
+
 /* Listen for a transition! */
 var transitionEvent = whichTransitionEvent();
 

@@ -1,0 +1,48 @@
+.brinkman-comments {
+  height: 150px;
+}
+
+.brinkman-comments .comment {
+  padding: 15px;
+  margin: 15px;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  transition: all .3s ease;
+}
+
+.brinkman-comments .comment.show {
+  animation-name: showComment;
+  animation-duration: .7s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+.brinkman-comments .comment a {
+  text-decoration: none;
+}
+
+.brinkman-comments .comment-author-image img {
+  border-radius: 50%;
+  margin-right: 25px;
+}
+
+.brinkman-comments .comment-date {
+  color: #676767;
+  font-size: 14px;
+}
+
+@keyframes showComment {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+}

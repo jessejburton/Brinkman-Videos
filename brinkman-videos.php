@@ -86,7 +86,7 @@ function burtonmedia_video_display_shortcode() {
 add_action( 'init', 'burtonmedia_video_display_shortcode' );
 
 /*
-* Video Display Shortcode Callback
+* Video Comments Shortcode Callback
 */
 function video_display_comments( $atts ) {
   global $wp_query,

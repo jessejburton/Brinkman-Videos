@@ -33,4 +33,38 @@ single-video.php file that can just be copied in to the theme
 
 
 ## 4. Custom Post Type
-The custom post type has been added using the Custom Post Type UI plugin, additional fields have been added via the Advanced Custom Fields Plugin
+The custom post type has been added using the [Custom Post Type UI plugin](https://en-ca.wordpress.org/plugins/custom-post-type-ui/), additional fields have been added via the [Advanced Custom Fields plugin](https://en-ca.wordpress.org/plugins/advanced-custom-fields/)
+
+#### Custom Post Type
+##### Video
+Post Type Slug    : video
+Plural Label      : Videos
+Singular Label    : Video
+Show in REST API  : true
+Has Archive       : true
+
+Support
+- Title
+- Featured Image
+- Custom Fields
+- Page Attributes
+
+Taxonomies
+- Shows
+
+#### Advanced Custom Fields
+##### Additional Video Information
+Rules
+- Show this field group of Post Type is equal to Video
+
+Style
+- Standard (WP metabox)
+
+##### Fields
+###### Lyrics
+Field Name        : lyrics
+Field Type        : Wysiwyg Editor
+
+###### More
+Field Name        : more
+Field Type        : Wysiwyg Editor
